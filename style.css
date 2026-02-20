@@ -423,3 +423,105 @@ input {
   display: block;
   margin: 0 auto;        /* center if needed */
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet (max-width: 900px) */
+@media screen and (max-width: 900px) {
+  .dashboard {
+      grid-template-columns: 1fr;  /* left rail moves to top */
+  }
+
+  .left-rail {
+      flex-direction: row;
+      height: auto;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      gap: 1.5rem;
+      justify-content: space-between;
+      z-index: 100;
+  }
+
+  .nav-icons {
+      flex-direction: row;
+      flex: none;
+      gap: 1.5rem;
+  }
+
+  .social-icons {
+      flex-direction: row;
+      margin-bottom: 0;
+      gap: 1rem;
+  }
+
+  .logo-link, .nav-logo {
+      margin-bottom: 0;
+  }
+
+  .bento-grid {
+      grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablet */
+      gap: 1rem;
+      padding: 1rem;
+  }
+
+  /* Override card spans for tablet */
+  .hero { grid-column: 1 / -1; }
+  .stats, .about, .skills, .live-data, .download-cv {
+      grid-column: span 1;
+  }
+  .featured {
+      grid-column: span 2;
+  }
+  .secondary, .contact, .feed {
+      grid-column: span 1;
+  }
+
+  /* Adjust typography */
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  .stat-value { font-size: 1.5rem; }
+  .card { padding: 1rem; }
+}
+
+/* Mobile (max-width: 500px) */
+@media screen and (max-width: 500px) {
+  .bento-grid {
+      grid-template-columns: 1fr;  /* single column */
+  }
+
+  .card {
+      grid-column: 1 / -1 !important;  /* all cards full width */
+  }
+
+  .left-rail {
+      padding: 0.8rem 1rem;
+  }
+
+  .nav-icons a {
+      font-size: 1.3rem;
+  }
+
+  .social-icons a {
+      font-size: 1.2rem;
+  }
+
+  h1 { font-size: 1.3rem; }
+  .hero {
+      padding: 1rem;
+  }
+  .hero div {
+      gap: 0.8rem;
+  }
+  .hero .logo-placeholder { /* adjust the HS circle */
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+  }
+}
+
+body {
+  background-attachment: scroll; /* better performance on mobile */
+}
